@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-API_URL = os.getenv("API_URL")  # Replace with your actual API Gateway endpoint
+API_URL = os.getenv("API_URL") 
 print(API_URL)# Replace with your actual API Gateway endpoint
 API_KEY = os.getenv("API_KEY")  # Replace with your actual API key if needed
 
@@ -21,7 +21,7 @@ if st.button("Generate Response"):
         with st.spinner("Calling LLM..."):
             try:
                 payload = {"inputs": prompt}
-
+                
                 headers = {
                 "x-api-key": API_KEY,
                 "Content-Type": "application/json"
@@ -32,8 +32,7 @@ if st.button("Generate Response"):
                 if response.status_code == 200:
                     data = response.json()
                     st.success("Response Received")
-                    st.write("### Model Output With Data:")
-                    st.write(data)
+                    st.write("### Model Output:")
                     st.info(data)
                 else:
                     st.error(f"Error: {response.status_code}")

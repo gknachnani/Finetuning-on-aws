@@ -16,7 +16,8 @@ if st.button("Generate Answer"):
             response = generate_answer(question)
 
         st.subheader("Retrieved Context")
-        st.info(response["context"])
+        # st.info(response["context"])
+        st.info(response)
 
         st.subheader("LLM Answer")
         st.success(response["answer"])
