@@ -2,8 +2,11 @@ import streamlit as st
 import requests
 import json
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 API_URL = os.getenv("API_URL")  # Replace with your actual API Gateway endpoint
+print(API_URL)# Replace with your actual API Gateway endpoint
 API_KEY = os.getenv("API_KEY")  # Replace with your actual API key if needed
 
 st.set_page_config(page_title="Inference App", layout="wide")
@@ -31,7 +34,7 @@ if st.button("Generate Response"):
                     st.success("Response Received")
                     st.write("### Model Output With Data:")
                     st.write(data)
-                    st.info(data["result"])
+                    st.info(data)
                 else:
                     st.error(f"Error: {response.status_code}")
                     st.write(response.text)
